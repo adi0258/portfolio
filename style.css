@@ -762,6 +762,11 @@ a:focus-visible, button:focus-visible {
   background: var(--surface);
 }
 
+.pc-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
 .pc-link {
   display: inline-flex;
   align-items: center;
