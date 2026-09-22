@@ -899,7 +899,7 @@ a:focus-visible, button:focus-visible {
   color: var(--text-faint);
   margin-bottom: 0.85rem;
 }
-.edu-extra { margin-top: 1.5rem; }
+.edu-extra { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.6rem; }
 .edu-pill {
   display: inline-flex;
   align-items: center;
