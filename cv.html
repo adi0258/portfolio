@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adi Tapiero — CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ---- tokens ---- */
+    :root {
+      --accent:       #4d7fa8;
+      --accent-light: #e6eff7;
+      --accent-mid:   #c2d9eb;
+      --accent-dark:  #2e5f82;
+      --bg-sidebar:   #f0f5fa;
+      --text:         #1e2d3d;
+      --text-muted:   #546070;
+      --text-faint:   #8a9aaa;
+      --border:       #d4dfe8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 9.5pt;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+
+    /* ---- page wrapper ---- */
+    .page {
+      display: grid;
+      grid-template-columns: 218px 1fr;
+      min-height: 100vh;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* ============ LEFT SIDEBAR ============ */
+    .sidebar {
+      background: var(--bg-sidebar);
+      padding: 28px 18px 32px;
+      border-right: 1px solid var(--border);
+    }
+
+    /* monogram */
+    .monogram-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .monogram {
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 22px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+    .sidebar-name {
+      font-size: 15pt;
+      font-weight: 700;
+      color: var(--text);
+      text-align: center;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+    }
+    .sidebar-title {
+      margin-top: 4px;
+      font-size: 8.5pt;
+      color: var(--accent);
+      text-align: center;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    /* sidebar section heading */
+    .s-section {
+      margin-top: 18px;
+    }
+    .s-heading {
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      border-bottom: 1.5px solid var(--accent-mid);
+      padding-bottom: 3px;
+      margin-bottom: 9px;
+    }
+
+    /* contact */
+    .contact-list { display: grid; gap: 5px; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 8.5pt;
+      color: var(--text-muted);
+    }
+    .contact-item svg { flex-shrink: 0; color: var(--accent); }
+
+    /* skill groups */
+    .skill-group { margin-bottom: 9px; }
+    .skill-group-label {
+      font-size: 8pt;
+      font-weight: 600;
+      color: var(--accent-dark);
+      margin-bottom: 2px;
+    }
+    .skill-group-items {
+      font-size: 8.2pt;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* cert */
+    .cert-item { margin-bottom: 7px; }
+    .cert-title {
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .cert-meta {
+      font-size: 7.8pt;
+      color: var(--text-faint);
+    }
+
+    /* lang & avail */
+    .lang-item, .avail-item {
+      font-size: 8.5pt;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .lang-item strong, .avail-item { color: var(--text); font-weight: 500; }
+
+    /* ============ RIGHT CONTENT ============ */
+    .content {
+      padding: 24px 28px 32px 26px;
+    }
+
+    /* summary */
+    .summary {
+      font-size: 9pt;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 18px;
+      padding: 12px 14px;
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+    }
+    .summary strong { color: var(--text); font-weight: 600; }
+
+    /* section */
+    .section { margin-bottom: 18px; }
+    .section-title {
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      border-bottom: 1.5px solid var(--accent-mid);
+      padding-bottom: 3px;
+      margin-bottom: 11px;
+    }
+
+    /* project featured */
+    .project { margin-bottom: 13px; }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .project-name {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .project-date {
+      font-size: 8pt;
+      color: var(--accent);
+      white-space: nowrap;
+      font-weight: 500;
+    }
+    .project-url {
+      font-size: 7.8pt;
+      color: var(--accent);
+      display: block;
+      margin: 1px 0 3px;
+    }
+    .project-stack {
+      font-size: 7.8pt;
+      color: var(--text-faint);
+      margin-bottom: 4px;
+    }
+    .project-stack span {
+      color: var(--accent-dark);
+      font-weight: 500;
+    }
+
+    /* bullet list */
+    .bullet-list { display: grid; gap: 4px; padding-left: 0; list-style: none; }
+    .bullet-list li {
+      position: relative;
+      padding-left: 13px;
+      font-size: 8.5pt;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+    .bullet-list li::before {
+      content: "•";
+      color: var(--accent);
+      font-size: 10pt;
+      position: absolute;
+      left: 0;
+      top: -1px;
+    }
+    .bullet-list li strong { color: var(--text); font-weight: 600; }
+
+    /* two-col projects */
+    .projects-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .project-mini { }
+    .project-mini .project-name { font-size: 9pt; }
+    .project-mini p {
+      font-size: 8.2pt;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin: 3px 0 4px;
+    }
+    .project-mini .project-stack { margin-bottom: 0; }
+
+    /* experience */
+    .exp-item { margin-bottom: 13px; }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .exp-title {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .exp-date {
+      font-size: 8pt;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .exp-company {
+      font-size: 8.5pt;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    /* education */
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .edu-degree {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .edu-date {
+      font-size: 8pt;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .edu-school {
+      font-size: 8.5pt;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    /* print */
+    @media print {
+      body { font-size: 9pt; }
+      .page { max-width: 100%; }
+      a { color: var(--accent); }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="monogram-wrap">
+      <div class="monogram">AT</div>
+      <div class="sidebar-name">ADI TAPIERO</div>
+      <div class="sidebar-title">Software Engineer<br>Backend &amp; Full-Stack</div>
+    </div>
+
+    <!-- Contact -->
+    <div class="s-section">
+      <div class="s-heading">Contact</div>
+      <ul class="contact-list">
+        <li class="contact-item">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Tel Aviv, Israel
+        </li>
+        <li class="contact-item">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.94.36 1.86.68 2.74a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.34-1.25a2 2 0 0 1 2.11-.45c.88.32 1.8.55 2.74.68A2 2 0 0 1 22 16.92z"/></svg>
+          +972 55-661-6076
+        </li>
+        <li class="contact-item">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          aditapiro12@gmail.com
+        </li>
+        <li class="contact-item">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.91 1.65-1.85 3.39-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          linkedin.com/in/adi-tapiero
+        </li>
+        <li class="contact-item">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.02 11.02 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.4-5.26 5.69.41.35.78 1.05.78 2.11 0 1.52-.01 2.75-.01 3.13 0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+          github.com/adi0258
+        </li>
+        <li class="contact-item">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          aditapiero.website
+        </li>
+      </ul>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="s-section">
+      <div class="s-heading">Technical Skills</div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Languages</div>
+        <div class="skill-group-items">Python, C, C++, Java, C#, JavaScript, TypeScript, SQL</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Backend &amp; Data</div>
+        <div class="skill-group-items">FastAPI, Flask, REST API design, PostgreSQL, Supabase, Firebase, OpenAI &amp; AssemblyAI APIs</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Frontend</div>
+        <div class="skill-group-items">React, Next.js, HTML5, CSS3, Tailwind, Redux</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Infrastructure &amp; Tools</div>
+        <div class="skill-group-items">Docker, Git, Linux/Unix, GCP, Vercel, CI/CD, LAN/WAN networking</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Foundations</div>
+        <div class="skill-group-items">Data Structures &amp; Algorithms, OOP, Operating Systems, Computer Networks, System Design, Secure Coding</div>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="s-section">
+      <div class="s-heading">Certifications</div>
+      <div class="cert-item">
+        <div class="cert-title">Outstanding Project Award — Accessible Academic</div>
+        <div class="cert-meta">The Academic College of Tel Aviv–Yaffo · 2026</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-title">Network Administrator, Level 6</div>
+        <div class="cert-meta">IDF C4I Corps · 2022</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-title">Instructor Diploma</div>
+        <div class="cert-meta">Ministry of Education · 2024</div>
+      </div>
+    </div>
+
+    <!-- Languages -->
+    <div class="s-section">
+      <div class="s-heading">Languages</div>
+      <div class="lang-item"><strong>Hebrew</strong> — Native</div>
+      <div class="lang-item"><strong>English</strong> — Full professional</div>
+    </div>
+
+    <!-- Availability -->
+    <div class="s-section">
+      <div class="s-heading">Availability</div>
+      <div class="avail-item">Full-time position</div>
+      <div class="avail-item">Open to relocation</div>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="content">
+
+    <!-- Summary -->
+    <div class="summary">
+      Software engineer completing a <strong>B.Sc. in Computer Science</strong> (expected 2027), who builds and ships systems end to end — from <strong>FastAPI</strong> services and asynchronous data pipelines to <strong>React</strong> front-ends. Comfortable across the stack and close to the metal: <strong>C/C++</strong> for performance-critical work, <strong>Python</strong> for services and automation, <strong>Docker</strong> and Linux for everything in between. Three years of hands-on technical work across network infrastructure and technical instruction. Available for a <strong>full-time backend or full-stack engineering</strong> role.
+    </div>
+
+    <!-- Projects -->
+    <div class="section">
+      <div class="section-title">Projects</div>
+
+      <div class="project">
+        <div class="project-header">
+          <div class="project-name">Accessible Academic — AI Lecture Platform</div>
+          <div class="project-date">2025 – Present</div>
+        </div>
+        <a class="project-url" href="https://accessible-academic-backend.vercel.app/">accessible-academic-backend.vercel.app</a>
+        <div class="project-stack"><span>Python · FastAPI · PostgreSQL · SQLModel · FFmpeg · Vercel</span> &nbsp;· team of 2</div>
+        <ul class="bullet-list">
+          <li>Turns university lecture recordings into captioned video and generated study material — topics, summaries and flashcards — built for students who cannot rely on listening alone.</li>
+          <li>Asynchronous <strong>FastAPI</strong> pipeline — FFmpeg normalization → <strong>AssemblyAI</strong> Hebrew speech-to-text with word-level timestamps → LLM generation — so long jobs run in the background and the API stays responsive.</li>
+          <li>Built a <strong>grounding validation pass</strong> that re-checks every generated summary and flashcard against the source transcript and rewrites or drops unsupported claims — study material cannot drift into model invention.</li>
+          <li>Deployed serverless on Vercel over PostgreSQL, with full <strong>RTL/Hebrew</strong> support including PDF export.</li>
+          <li><strong>🏆 Outstanding Project Award — 2nd place</strong>, Applications track · Academic College of Tel Aviv–Yaffo, Sep 2026 · <a href="https://www.israelhayom.co.il/news/education/article/21597703" target="_blank">Featured in Israel Hayom →</a></li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+          <div class="project-name">BiteWise — Nutrition Tracking PWA</div>
+          <div class="project-date">2026 – Present</div>
+        </div>
+        <a class="project-url" href="https://bitewise-gray.vercel.app/">bitewise-gray.vercel.app</a>
+        <div class="project-stack"><span>Next.js · TypeScript · Supabase · Postgres · OpenAI · Tailwind</span></div>
+        <ul class="bullet-list">
+          <li>Bilingual (Hebrew/English) nutrition-tracking app running in production, with full RTL/LTR layout, Google sign-in and PWA install.</li>
+          <li>Live <strong>barcode scanning</strong> (native BarcodeDetector, ZXing fallback) against Open Food Facts, plus AI reading of nutrition labels from photos for products missing from every database.</li>
+          <li>Secured every table with per-user <strong>Row Level Security</strong>; AI calls are rate-limited per user and cached in Postgres to keep cost bounded.</li>
+        </ul>
+      </div>
+
+      <div class="projects-2col">
+        <div class="project-mini">
+          <div class="project-name">RecipeBook — Instagram Recipe Parser</div>
+          <a class="project-url" href="https://recipe-book-one-psi.vercel.app/">recipe-book-one-psi.vercel.app</a>
+          <p>Turns Instagram recipe posts into a structured personal cookbook — parses free-text captions into normalized ingredients and steps. Python, Flask, Google OAuth.</p>
+          <div class="project-stack"><span>Python · Flask · instaloader · Vanilla JS · Google Auth</span></div>
+        </div>
+        <div class="project-mini">
+          <div class="project-name">Study Buddy — Matching App</div>
+          <a class="project-url" href="https://study-buddy-seven-vert.vercel.app/">study-buddy-seven-vert.vercel.app</a>
+          <p>Matching algorithm pairing students by course, availability and study style. React client with Firebase Authentication and Realtime Database.</p>
+          <div class="project-stack"><span>React · Firebase · Auth · Realtime DB</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="section">
+      <div class="section-title">Experience</div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Programming &amp; Robotics Instructor</div>
+          <div class="exp-date">2024 – Present</div>
+        </div>
+        <div class="exp-company">Tactics Education</div>
+        <ul class="bullet-list">
+          <li>Teach <strong>C programming</strong> and embedded development on <strong>Arduino</strong> to student groups, from syntax through pointers and memory management.</li>
+          <li>Design project-based curricula and hands-on debugging exercises; review and troubleshoot student code and hardware wiring.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Network Administrator</div>
+          <div class="exp-date">Aug 2021 – Aug 2022</div>
+        </div>
+        <div class="exp-company">Israel Defense Forces — C4I (ICT) Corps</div>
+        <ul class="bullet-list">
+          <li>Deployed, maintained and secured <strong>LAN/WAN infrastructure</strong> serving 100+ users.</li>
+          <li>Monitored network traffic, resolved OS-level connectivity faults and enforced access-control policy; <strong>cut network downtime by ~25%</strong> through proactive monitoring and faster incident response.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="section">
+      <div class="section-title">Education</div>
+      <div class="edu-header">
+        <div class="edu-degree">B.Sc. Computer Science</div>
+        <div class="edu-date">2023 – 2027 (Final Year)</div>
+      </div>
+      <div class="edu-school">The Academic College of Tel Aviv–Yaffo</div>
+      <ul class="bullet-list">
+        <li>Relevant coursework: <strong>Data Structures &amp; Algorithms, Operating Systems, Computer Networks, Advanced Programming in C, Object-Oriented Programming (C++), Databases, System Design.</strong></li>
+      </ul>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>
