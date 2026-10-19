@@ -81,6 +81,11 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 ul, ol { list-style: none; padding: 0; margin: 0; }
 h1, h2, h3, h4, p { margin: 0; }
 
+/* Israel Hayom logo — invert for light theme */
+[data-theme="light"] .ih-logo {
+  filter: invert(20%) sepia(10%) saturate(500%) hue-rotate(185deg) brightness(40%) !important;
+}
+
 /* Focus states */
 a:focus-visible, button:focus-visible {
   outline: 2px solid var(--accent);
